@@ -1,0 +1,34 @@
+﻿
+@model Lab2_IT_2024.Models.EventModel
+
+@{
+    ViewBag.Title = "EventDetails";
+}
+
+<style>
+    #container {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        font-size: 32px;
+    }
+
+        #container p {
+            margin: 0;
+        }
+
+    .redText {
+        color: darkred;
+    }
+</style>
+
+<h2>Event details</h2>
+
+<div id="container">
+    <p>ID: <span class="redText">@Model.Id</span></p>
+    <p>Име: <span class="redText">@Model.Name</span></p>
+    <p>Локација: <span class="redText">@Model.Location</span></p>
+</div>
+
+@Html.ActionLink("Back", "ShowEvents")
+
+

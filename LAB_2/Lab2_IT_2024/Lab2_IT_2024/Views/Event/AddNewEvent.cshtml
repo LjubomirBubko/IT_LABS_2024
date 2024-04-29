@@ -1,0 +1,37 @@
+﻿
+@model Lab2_IT_2024.Models.EventModel
+
+@{
+    ViewBag.Title = "AddNewEvent";
+}
+
+<h2>Додавање на нов евент:</h2>
+
+@using (Html.BeginForm("AddNewEvent", "Event"))
+{
+    <div>
+        <div>
+            @Html.Label("Event ID")
+            @Html.TextBoxFor(model => model.Id, new { @class = "form-control", disabled = true })
+        </div>
+        <br />
+
+        <div>
+            @Html.Label("Event name")
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+        <br />
+
+        <div>
+            @Html.Label("Event location")
+            @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+        </div>
+        <br />
+
+        <button type="submit">Додај</button>
+    </div>
+}
+
+

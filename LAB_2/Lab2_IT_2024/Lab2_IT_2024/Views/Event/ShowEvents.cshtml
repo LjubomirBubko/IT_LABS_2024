@@ -1,0 +1,79 @@
+﻿
+
+@model List<Lab2_IT_2024.Models.EventModel>
+
+@{
+    ViewBag.Title = "ShowEvents";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-color:darkred;
+    }
+
+    #tableHeading {
+        text-align: center;
+    }
+
+    td, th {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+    }
+
+    tr:nth-child(even) {
+        background-color: white;
+    }
+
+    td:hover {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .actionLinks {
+        width: 10%;
+        text-align: center;
+    }
+
+    #addEvent {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    #title {
+        text-align: center;
+    }
+</style>
+
+<h2 id="title">Настани </h2>
+
+<div id="addEvent">
+    @Html.ActionLink("Add event", "AddNewEvent")
+</div>
+
+<table>
+    <thead>
+        <tr id="tableHeading">
+            <td>ID</td>
+            <td>Име</td>
+            <td>Локација</td>
+            <td colspan="2">Состојби</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.Id</td>
+                <td>@e.Name</td>
+                <td>@e.Location</td>
+                <td class="actionLinks">@Html.ActionLink("Edit", "EditEvent", new { id = e.Id })</td>
+                <td class="actionLinks">@Html.ActionLink("Delete", "DeleteEvent", new { id = e.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>

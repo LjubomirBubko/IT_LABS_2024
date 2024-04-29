@@ -1,0 +1,39 @@
+﻿
+
+@model Lab2_IT_2024.Models.EventModel
+@{
+    ViewBag.Title = "DeleteEvent";
+}
+
+<style>
+    #container {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        font-size: 32px;
+    }
+
+    #buttons {
+        font-size: 32px;
+    }
+
+        #buttons button {
+            margin-right: 2%
+        }
+</style>
+
+@using (Html.BeginForm("DeleteEvent", "Event", FormMethod.Post))
+{
+    <h1>Бришење на евент</h1>
+    <br />
+
+    <div id="container">
+        <h5>Дали сте сигурни дека сакате да го избришите?</h5>
+        <p style="color: red;">Одбран евент: @Model.Name</p>
+    </div>
+    <br />
+
+    <div id="buttons">
+        <button type="submit">ДА</button>
+        @Html.ActionLink("Cancel", "ShowEvents")
+    </div>
+}
